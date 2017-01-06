@@ -7,6 +7,6 @@ shinyServer(function(input, output) {
   rf = readRDS("rf_leeds_schools.Rds")
 
   output$map <- renderLeaflet({
-    leaflet() %>% addTiles() %>% addPolylines(data = rf)
+    leaflet() %>% addTiles() %>% addPolylines(data = rf, weight = rf$bicycle / 5)
   })
 })
