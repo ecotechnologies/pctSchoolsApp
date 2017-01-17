@@ -4,9 +4,18 @@ library(sp)
 # Define server logic required to draw a histogram
 shinyServer(function(input, output) {
   
+  weight = reactive({
+    sqrt(rf@data[[input$scenario]]) * as.numeric(input$modeOfTravel == "Cycle")
+  })
+  
   rf = readRDS("rf_leeds_schools.Rds")
 
   output$map <- renderLeaflet({
-    leaflet() %>% addTiles() %>% addPolylines(data = rf, weight = rf$bicycle / 5)
+    leaflet() %>% addTiles() %>% addPolylines(data = rf, weight = "bicycle", opacity = 0)
+  })
+  observe({
+    leafletProxy("map") %>%
+      clearShapes() %>% 
+      addPolylines(data = rf, weight = weight())
   })
 })
