@@ -8,7 +8,7 @@ shinyServer(function(input, output) {
     sqrt(rf@data[[input$scenario]]) * as.numeric(input$modeOfTravel == "Cycle")
   })
   
-  rf = readRDS("rf_leeds_schools.Rds")
+  rf = readRDS("rf_leeds_schools_all.Rds")
 
   output$map <- renderLeaflet({
     leaflet() %>% addTiles() %>% addPolylines(data = rf, weight = "bicycle", opacity = 0)
