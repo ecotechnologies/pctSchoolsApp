@@ -12,7 +12,7 @@ get_scenario_name <- function(sc_name, all_trips){
 }
 
 total_commuters <- function(all_trips) {
-  ifelse(all_trips, "Total weekly no. trips:", "Total commuters:")
+  ifelse(all_trips, "Total weekly no. trips:", "Total commutersx:")
 }
 
 cyclists_baseline <- function(all_trips){
