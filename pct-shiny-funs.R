@@ -12,7 +12,7 @@ get_scenario_name <- function(sc_name, all_trips){
 }
 
 total_commuters <- function(all_trips) {
-  ifelse(all_trips, "Total weekly no. trips:", "Total commuters:")
+  ifelse(all_trips, "Total weekly no. trips:", "Total no. children:")
 }
 
 cyclists_baseline <- function(all_trips){
@@ -28,7 +28,7 @@ cyclists_change <- function(all_trips){
 }
 
 driver_baseline <- function(all_trips){
-  ifelse(all_trips, "Car trips/wk: &nbsp;", "Drivers (baseline): &nbsp; ")
+  ifelse(all_trips, "Car trips/wk: &nbsp;", "Driven by car (baseline): &nbsp; ")
 }
 
 driver_change <- function(all_trips){
@@ -38,7 +38,7 @@ cyclists_interzone <- function(all_trips){
   if(all_trips)
     list("cycle" = "Between-zone cycle trips/wk* ", "*" = "* selected cycle trips")
   else
-    list("cycle" = "Between-zone cyclists*", "*" = "* selected cyclists: see Model Output tab")
+    list("cycle" = "Cyclists*", "*" = "* showing segments with 5+ children")
 }
 
 is_decimal <- function(x) {
