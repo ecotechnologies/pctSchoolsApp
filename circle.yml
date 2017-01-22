@@ -1,0 +1,5 @@
+deployment:
+  master:
+    branch: master
+    commands:
+      - git push git@npct0.vs.mythic-beasts.com:pctSchoolsApp $CIRCLE_SHA1:master -f
